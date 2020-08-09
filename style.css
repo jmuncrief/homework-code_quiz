@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(70, 70, 70);
+    color: rgb(200, 200, 200);
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.questionCont {
+    border: 2px;
+    border-color: rgb(200, 200, 200);
+    border-radius: 3px;
+}
+
+.col {
+    padding: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+}
