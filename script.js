@@ -1,12 +1,17 @@
+// import questions from "./questions.js";
+
 // Const variables for HTML elements
+const title = document.getElementById("title");
 const questionTxt = document.getElementById("questionTxt");
-const buttons = [
+const start = document.getElementById("start");
+const ansButtons = [
     document.getElementById("ans1"),
     document.getElementById("ans2"),
     document.getElementById("ans3"),
     document.getElementById("ans4"),
 ];
 const timer = document.getElementById("time");
+let score = "";
 
 // Timer
 let secondsLeft = 30;
@@ -14,6 +19,7 @@ function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds remaining.";
+        console.log(secondsLeft);
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -24,7 +30,9 @@ function setTime() {
 
 // Code executed when timer expires
 function timesUp() {
-
+    title.textContent = "Game Over";
+    timer.style.display = "none";
+    questionTxt.textContent = "You ran out of time. No points for you!"
 }
 
 // Select button at random
@@ -46,7 +54,11 @@ function writeQuestion(q, f, t) {
 
 // Main Q&A Game function
 function game() {
-    import questions from "./questions.js";
+
+    start.style.display = "none";
+    ansButtons.style.display = "block";
+
+    setTime();
 
     questions.forEach(obj => {
         let q = obj.question;
@@ -62,5 +74,7 @@ function game() {
 
 }
 
-// Execute timer script on page load
-setTime();
+start.addEventListener("click", function(event) {
+    event.preventDefault();
+    game();
+})
