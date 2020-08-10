@@ -8,6 +8,7 @@ const ansButtons = [
     document.getElementById("ans3"),
     document.getElementById("ans4"),
 ];
+const timerCont = document.querySelector(".timer-container");
 const timer = document.getElementById("time");
 let score = "";
 
@@ -16,7 +17,7 @@ let secondsLeft = 30;
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timer.textContent = secondsLeft + " seconds remaining.";
+        timer.textContent = secondsLeft;
         console.log(secondsLeft);
 
         if (secondsLeft === 0) {
@@ -31,6 +32,10 @@ function timesUp() {
     title.textContent = "Game Over";
     timer.style.display = "none";
     questionTxt.textContent = "You ran out of time. No points for you!"
+    ansButtons.forEach(element => {
+        element.style.display = "none";
+    });
+    clearInterval(timer);
 }
 
 // Select button at random
@@ -54,8 +59,10 @@ function writeQuestion(q, f, t) {
 function game() {
 
     start.style.display = "none";
-    ansButtons.style.display = "block";
-
+    timerCont.style.display = "block";
+    ansButtons.forEach(element => {
+        element.style.display = "block";
+    });
     setTime();
 
     questions.forEach(obj => {

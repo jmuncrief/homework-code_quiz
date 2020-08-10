@@ -25,3 +25,9 @@ body {
     display: grid;
     grid-template-columns: 1fr, 1fr, 1fr, 1fr;
 }
+
+.timer-container {
+    position: fixed;
+    top: 20px;
+    right: 80px;
+}
