@@ -1,5 +1,3 @@
-// import questions from "./questions.js";
-
 // Const variables for HTML elements
 const title = document.getElementById("title");
 const questionTxt = document.getElementById("questionTxt");

@@ -61,5 +61,3 @@ const questions = [
         trueAnswer: "",
     },
 ];
-
-export default questions;
