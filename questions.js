@@ -14,9 +14,9 @@ const questions = [
     },
     // Question [2]
     {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
+        question: "How many dogs do I have?",
+        falseAnswers: ["1", "2", "4"],
+        trueAnswer: "3",
     },
     // Question [3]
     {

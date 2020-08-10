@@ -8,14 +8,40 @@ const buttons = [
 ];
 const timer = document.getElementById("time");
 
-function randBtn() {
+// Timer
+let secondsLeft = 30;
+function setTime() {
+    let timerInterval = setInterval(function () {
+        secondsLeft--;
+        timer.textContent = secondsLeft + " seconds remaining.";
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            timesUp();
+        }
+    }, 1000);
+}
+
+// Code executed when timer expires
+function timesUp() {
+
+}
+
+// Select button at random
+function randBtn(t) {
     let x = Math.ceil(Math.random() * 4);
-    return buttons[x];
+    buttons[x].textContent = t;
+}
+
+// Write false answers to other buttons
+function btnCycle() {
+    // ?Subtract value from array and loop through remainder?
 }
 
 function writeQuestion(q, f, t) {
     questionTxt.textContent = q
-
+    randBtn(t);
+    btnCycle(f);
 }
 
 // Main Q&A Game function
@@ -26,7 +52,15 @@ function game() {
         let q = obj.question;
         let f = obj.falseAnswers;
         let t = obj.trueAnswers;
+
+        writeQuestion(q, f, t);
+
+
+
     });
 
 
 }
+
+// Execute timer script on page load
+setTime();
