@@ -2,23 +2,17 @@
 const title = document.getElementById("title");
 const questionTxt = document.getElementById("questionTxt");
 const start = document.getElementById("start");
-const ansButtons = [
-    document.getElementById("ans1"),
-    document.getElementById("ans2"),
-    document.getElementById("ans3"),
-    document.getElementById("ans4"),
-];
+const buttons = document.getElementById("buttons");
 const timerCont = document.querySelector(".timer-container");
 const timer = document.getElementById("time");
 let score = "";
 
 // Timer
-let secondsLeft = 30;
+let secondsLeft = 5;
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
-        console.log(secondsLeft);
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -32,27 +26,22 @@ function timesUp() {
     title.textContent = "Game Over";
     timer.style.display = "none";
     questionTxt.textContent = "You ran out of time. No points for you!"
-    ansButtons.forEach(element => {
-        element.style.display = "none";
-    });
+    buttons.style.display = "none";
     clearInterval(timer);
-}
-
-// Select button at random
-function randBtn(t) {
-    let x = Math.ceil(Math.random() * 4);
-    buttons[x].textContent = t;
-}
-
-// Write false answers to other buttons
-function btnCycle() {
-    // ?Subtract value from array and loop through remainder?
 }
 
 function writeQuestion(q, f, t) {
     questionTxt.textContent = q
-    randBtn(t);
-    btnCycle(f);
+    for(let i = 0; i < f.length; i++) {
+        let b = document.createElement("button");
+        b.setAttribute("class", "btn");
+        b.textContent = f[i];
+        buttons.append(b);
+    };
+    let b = document.createElement("button");
+    b.setAttribute("class", "btn");
+    b.textContent = t;
+    buttons.append(b);
 }
 
 // Main Q&A Game function
@@ -60,26 +49,22 @@ function game() {
 
     start.style.display = "none";
     timerCont.style.display = "block";
-    ansButtons.forEach(element => {
-        element.style.display = "block";
-    });
+    buttons.style.display = "block";
     setTime();
 
     questions.forEach(obj => {
         let q = obj.question;
         let f = obj.falseAnswers;
-        let t = obj.trueAnswers;
+        let t = obj.trueAnswer;
 
         writeQuestion(q, f, t);
 
 
 
     });
-
-
 }
 
-start.addEventListener("click", function(event) {
+start.addEventListener("click", function (event) {
     event.preventDefault();
     game();
 })
