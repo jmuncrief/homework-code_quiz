@@ -20,44 +20,44 @@ const questions = [
     },
     // Question [3]
     {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
+        question: "How many cats do I have?",
+        falseAnswers: ["1"],
+        trueAnswer: "2",
     },
     // Question [4]
     {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
+        question: "What is my favorite soda?",
+        falseAnswers: ["Pepsi", "Coke", "Dr. Pepper"],
+        trueAnswer: "Mtn. Dew",
     },
     // Question [5]
     {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
+        question: "What is my favorite hero in Overwatch?",
+        falseAnswers: ["Reinhardt", "Winston", "Pharah"],
+        trueAnswer: "Brigitte",
     },
-    // Question [6]
-    {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
-    },
-    // Question [7]
-    {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
-    },
-    // Question [8]
-    {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
-    },
-    // Question [9]
-    {
-        question: "",
-        falseAnswers: "",
-        trueAnswer: "",
-    },
+    // // Question [6]
+    // {
+    //     question: "",
+    //     falseAnswers: "",
+    //     trueAnswer: "",
+    // },
+    // // Question [7]
+    // {
+    //     question: "",
+    //     falseAnswers: "",
+    //     trueAnswer: "",
+    // },
+    // // Question [8]
+    // {
+    //     question: "",
+    //     falseAnswers: "",
+    //     trueAnswer: "",
+    // },
+    // // Question [9]
+    // {
+    //     question: "",
+    //     falseAnswers: "",
+    //     trueAnswer: "",
+    // },
 ];
