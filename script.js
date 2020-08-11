@@ -8,7 +8,7 @@ const timer = document.getElementById("time");
 let score = "";
 
 // Timer
-let secondsLeft = 5;
+let secondsLeft = 30;
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
@@ -30,9 +30,12 @@ function timesUp() {
     clearInterval(timer);
 }
 
-function writeQuestion(q, f, t) {
+function writeQuestion(obj) {
+    let q = obj.question;
+    let f = obj.falseAnswers;
+    let t = obj.trueAnswer;
     questionTxt.textContent = q
-    for(let i = 0; i < f.length; i++) {
+    for (let i = 0; i < f.length; i++) {
         let b = document.createElement("button");
         b.setAttribute("class", "btn");
         b.textContent = f[i];
@@ -44,27 +47,40 @@ function writeQuestion(q, f, t) {
     buttons.append(b);
 }
 
+function parseAnswer(x) {
+    if(x.matches()) {
+
+    } else {
+        
+    }
+}
+
 // Main Q&A Game function
 function game() {
 
     start.style.display = "none";
     timerCont.style.display = "block";
     buttons.style.display = "block";
+
+    let currentQuestion = 0;
+
     setTime();
-
-    questions.forEach(obj => {
-        let q = obj.question;
-        let f = obj.falseAnswers;
-        let t = obj.trueAnswer;
-
-        writeQuestion(q, f, t);
+    writeQuestion(questions[currentQuestion]);
 
 
 
-    });
+
+
 }
 
 start.addEventListener("click", function (event) {
     event.preventDefault();
     game();
+})
+buttons.addEventListener("click", function(e) {
+    e.preventDefault();
+    if(e.target.matches("button")) {
+        let x = e.target.textContent;
+        parseAnswer(x);
+    }
 })
