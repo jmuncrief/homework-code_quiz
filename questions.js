@@ -2,39 +2,39 @@
 const questions = [
     // Question [0]
     {
-        question: "What is my favorite color?",
-        falseAnswers: ["Blue", "Green", "Purple"],
-        trueAnswer: "Red",
+        question: "What does JSON stand for?",
+        falseAnswers: ["Java Syntax Object Notation", "JavaScript Object Nomenclature"],
+        trueAnswer: "JavaScript Object Notation",
     },
     // Question [1]
     {
-        question: "What is my make of truck?",
-        falseAnswers: ["Toyota", "Chevrolet", "Ford"],
-        trueAnswer: "Nissan",
+        question: "\"64-bit\" and \"32-bit\" commonly describes.",
+        falseAnswers: ["Memory", "Storage", "Refresh Rate"],
+        trueAnswer: "Processor Architecture",
     },
     // Question [2]
     {
-        question: "How many dogs do I have?",
-        falseAnswers: ["1", "2", "4"],
-        trueAnswer: "3",
+        question: "Replace the asterisks in the following: ***(let i = 0; i < x.length; i++) {}",
+        falseAnswers: ["if", "forEach", "while"],
+        trueAnswer: "for",
     },
     // Question [3]
     {
-        question: "How many cats do I have?",
-        falseAnswers: ["1"],
-        trueAnswer: "2",
+        question: "JavaScript and Java are the same programming language.",
+        falseAnswers: ["True"],
+        trueAnswer: "False",
     },
     // Question [4]
     {
-        question: "What is my favorite soda?",
-        falseAnswers: ["Pepsi", "Coke", "Dr. Pepper"],
-        trueAnswer: "Mtn. Dew",
+        question: "The \'fat-arrow\' (=>) is sometimes called a _ in other languages.",
+        falseAnswers: ["Closure", "Assembly", "Anonymous", "Callback"],
+        trueAnswer: "Lambda",
     },
     // Question [5]
     {
-        question: "What is my favorite hero in Overwatch?",
-        falseAnswers: ["Reinhardt", "Winston", "Pharah"],
-        trueAnswer: "Brigitte",
+        question: "This language alters a web page aesthetically.",
+        falseAnswers: ["HTML", "JavaScript", "JSON"],
+        trueAnswer: "CSS",
     },
     // // Question [6]
     // {

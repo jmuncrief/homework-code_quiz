@@ -15,7 +15,7 @@ let secondsLeft = 30;
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timer.textContent = secondsLeft;
+        timer.textContent = "Time Left: " + secondsLeft;
 
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
@@ -87,7 +87,7 @@ function parseAnswer(x) {
 function game() {
 
     start.style.display = "none";
-    timerCont.style.display = "block";
+    timer.textContent = "Time Left: ";
     buttons.style.display = "block";
 
     // let currentQuestion = 0;
