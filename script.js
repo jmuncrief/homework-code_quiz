@@ -7,6 +7,7 @@ const buttons = document.getElementById("buttons");
 const timerCont = document.querySelector(".timer-container");
 const timer = document.getElementById("time");
 
+// Global Variables
 let score = "";
 let currentQuestion = 0;
 
@@ -16,7 +17,6 @@ function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = "Time Left: " + secondsLeft;
-
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             timesUp();
@@ -24,7 +24,7 @@ function setTime() {
     }, 1000);
 }
 
-// Code executed when timer expires
+// Code executed when timer expires (loss-condition)
 function timesUp() {
     clearInterval(timer);
     title.textContent = "Game Over";
@@ -34,11 +34,11 @@ function timesUp() {
     buttons.innerHTML = "";
 }
 
+// Function executed when player has exhausted all questions with time still remaining (win-condition)
 function winner() {
     let playerScore = secondsLeft;
     title.textContent = "You're Winner!";
     clearInterval(timer);
-    // buttons.style.display = "none";
     buttons.innerHTML = "";
     timerCont.style.display = "none";
     timer.style.display = "none";
@@ -49,7 +49,7 @@ function winner() {
     buttons.append(x);
 }
 
-
+// Loops through question object array and writes questions and answer(s) to page dynamically
 function writeQuestion(obj) {
     buttons.innerHTML = "";
     let q = obj.question;
@@ -68,6 +68,7 @@ function writeQuestion(obj) {
     buttons.append(b);
 }
 
+// Processes user's answers, overwrites current question, triggers win-condition
 function parseAnswer(x) {
     const ans = questions[currentQuestion].trueAnswer
     if(x === ans) {
@@ -83,25 +84,20 @@ function parseAnswer(x) {
     }
 }
 
-// Main Q&A Game function
+// Starts timer and game when "Start" button is clicked
 function game() {
-
     start.style.display = "none";
     timer.textContent = "Time Left: ";
     buttons.style.display = "block";
-
-    // let currentQuestion = 0;
-
     setTime();
     writeQuestion(questions[currentQuestion]);
-
 }
 
+// Event listeners for start and answer buttons
 start.addEventListener("click", function (event) {
     event.preventDefault();
     game();
 })
-
 buttons.addEventListener("click", function(e) {
     e.preventDefault();
     if(e.target.matches("button")) {
